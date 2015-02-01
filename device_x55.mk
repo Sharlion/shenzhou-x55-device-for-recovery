@@ -8,6 +8,8 @@ $(call inherit-product-if-exists, vendor/shenzhou/x55/x55-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/shenzhou/x55/overlay
 
 LOCAL_PATH := device/shenzhou/x55
+LOCAL_RECOVERY_PATH := device/shenzhou/x55/recovery
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -15,7 +17,7 @@ else
 endif
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+    $(LOCAL_PATH)/fstab.mt6592:root/fstab.mt6592
 
 $(call inherit-product, build/target/product/full.mk)
 
